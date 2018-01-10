@@ -1,5 +1,6 @@
 ## Evan Grissino
 ## 09/08/15
+## Python 3.x only
 ##
 ## This program takes any number (n) of any length and itterates it through
 ## an algorithm to arrive at the number (123).
@@ -12,23 +13,37 @@
 ## this is the new number
 ## repeat this process with the new number
 
-## Global assignments
+# Imports
 import time
+
+# Global assignments
 p = print
+
+## Header
+p("Welcome to the 'Any Number To 123' program!")
+p("")
+
+# Main loop
 while(True):
-    ## Header
-    p("Welcome to the 'Any Number To 123' program!")
-    p("")
-    p("Please enter any number")
 
     ## Prompt for number and assign to (n)
-    #n = input(":: ")
-
     #Make sure it is a valid number, or quit the program
     try:
-        n = int(input("::"))
+        p("Please enter any number or q to quit")
+        n = input("::")
+
+        # Check to see if the user is trying to quit
+        if n == 'q':
+            # break out of mainloop, ending the program
+            break
+
+        # Assertion
+        n = int(n)
     except:
-        print("That is not a valid number for this program.")
+        # User entered a non numeric value
+        print("That is not a valid number for this program!\n")
+        # continue to next loop skipping the rest of the loop
+        continue
     
 
     p("")
@@ -37,7 +52,6 @@ while(True):
 
     ##=======================================
     ## Setup algorithm function
-
     def NumAlgorithm(n):
         n = str(n)                      # set n to a string so algothithm can handle
         e = 0                           # set even digits equal to zero
@@ -82,7 +96,5 @@ while(True):
         p("")
     
     
-        a = (n != "123")                  # test if number is 123                     
+        a = (n != "123")                # test if number is 123                     
         count += 1                      # increase count by 1
-
-
